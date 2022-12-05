@@ -11,3 +11,5 @@ and then in different thread run `python bot.py`
 
 
 Make sure your discord keys are correct and your bot has neccessary permissions to perform action.
+![Sample Output](https://pbs.twimg.com/media/FjNCJTlUUAAZBvg?format=png&name=900x900)
+
