@@ -18,6 +18,8 @@ async def on_message(message):
     if message.author == client.user:
         return
     try:
+     
+        await message.channel.trigger_typing()
         res = requests.get("http://localhost:5001/chat?q=" + message.content)
         await message.channel.send(res.text)
     except:
