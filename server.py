@@ -17,8 +17,13 @@ PAGE = BROWSER.new_page()
 
 
 def get_input_box():
-    """Get the child textarea of `PromptTextarea__TextareaWrapper`"""
+    #Get the child textarea of `PromptTextarea__TextareaWrapper`
     return PAGE.query_selector("textarea")
+
+
+def is_loading_response() -> bool:
+    # See if the send button is diabled, if it does, we're not loading
+    return not PAGE.query_selector("button[class*='PromptTextarea__PositionSubmit']").is_enabled()
 
 
 def is_logged_in():
@@ -34,6 +39,8 @@ def send_message(message):
 
 def get_last_message():
     """Get the latest message"""
+    while is_loading_response():
+        time.sleep(0.25)
     page_elements = PAGE.query_selector_all(
         "div[class*='ConversationItem__Message']")
     last_element = page_elements[-1]
@@ -45,14 +52,6 @@ def chat():
     message = flask.request.args.get("q")
     print("Sending message: ", message)
     send_message(message)
-    time.sleep(10)
-    for i in range(10):
-        response = get_last_message()
-        print(len(response))
-        if len(response) > 1:  # you would be thinking why i didn't use if response. idk why but len of empty response is always 1 LMAO -_-
-            break
-        time.sleep(8)
-
     response = get_last_message()
     return response
 
