@@ -1,6 +1,6 @@
 a discord bot that brings gpt3chat in your discord server.
 
-Using: https://github.com/ZohaibAhmed/chatgpt-api
+Using hacky API for GPT3: https://github.com/ZohaibAhmed/chatgpt-api
 
 
 after installing requirements with `pip install -r requirements.txt`
