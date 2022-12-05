@@ -45,9 +45,15 @@ def chat():
     message = flask.request.args.get("q")
     print("Sending message: ", message)
     send_message(message)
-    time.sleep(10) #just a hack cuz i am lazy to write script to see if the response is in
+    time.sleep(5)
+    for i in range(10):
+        response = get_last_message()
+        print(len(response))
+        if len(response) > 1:  # you would be thinking why i didn't use if response. idk why but len of empty response is always 1 LMAO -_-
+            break
+        time.sleep(5)
+
     response = get_last_message()
-    print("Response: ", response)
     return response
 
 

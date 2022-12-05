@@ -18,6 +18,7 @@ async def ask(ctx, *, question):
     try:
         await ctx.trigger_typing()
         res = requests.get("http://localhost:5001/chat?q=" + question)
+        print(res)
         await ctx.send(res.text)
     except:
         await ctx.send("Somehting went wrong. Make sure you have logged in with your GPT3 account")
