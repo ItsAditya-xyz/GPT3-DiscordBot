@@ -1,3 +1,5 @@
+WARNING: THIS CODE BASE NO LONGER WORKS: Use: https://github.com/Zero6992/chatGPT-discord-bot
+
 a discord bot that brings gpt3chat in your discord server.
 
 Using hacky API for GPT3: https://github.com/taranjeet/chatgpt-api
